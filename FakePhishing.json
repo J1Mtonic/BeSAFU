@@ -1,0 +1,27 @@
+[
+  {
+    "address": "0x6d8981847eb3cc2234179d0f0e72f6b6b2421a01",
+    "nameTag": "Fake_Phishing",
+    "reporter": "AnciliaInc"
+  },
+  {
+    "address": "0x26585626e4a8d4fc409146b47a61790d9008967c",
+    "nameTag": "Fake_Phishing708",
+    "reporter": "AnciliaInc"
+  },
+  {
+    "address": "0x6a2ef785053b5c3cd868c742c218c77e93fa5091",
+    "nameTag": "Fake_Phishing",
+    "reporter": "AnciliaInc"
+  },
+  {
+    "address": "0x8f34c8232d482cb65fea0d05184596001997d352",
+    "nameTag": "Fake_Phishing",
+    "reporter": "iamdeadlyz"
+  },
+  {
+    "address": "0x544fde4e25dd7e0aff084f4975d808ae366b746b",
+    "nameTag": "Fake_Phishing",
+    "reporter": "iamdeadlyz"
+  }
+]
