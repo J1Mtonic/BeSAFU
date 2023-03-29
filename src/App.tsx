@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useEffect } from "react";
+import React, { FunctionComponent, useState } from "react";
 import {
   ChakraProvider,
   Box,
@@ -31,7 +31,8 @@ import {
   ModalBody,
   useClipboard,
   Tooltip,
-  useMediaQuery
+  Grid,
+  SimpleGrid
 } from "@chakra-ui/react";
 import { SearchIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
@@ -189,7 +190,8 @@ const QRCodeModal: React.FC<QRCodeModalProps> = ({ isOpen, onClose }) => {
 
 function HeaderButtons() {
   const hoverBgColor = useColorModeValue("gray.300", "gray.600");
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { toggleColorMode } = useColorMode()
+  const SwitchIcon = useColorModeValue(MoonIcon, SunIcon)
   const [isQRCodeModalOpen, setQRCodeModalOpen] = useState(false);
 
   const openQRCodeModal = () => {
@@ -215,8 +217,8 @@ function HeaderButtons() {
         </Button>
         <IconButton
           aria-label="Toggle theme"
-          icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
           onClick={toggleColorMode}
+          icon={<SwitchIcon />}
           size="sm"
           _hover={{ bgColor: hoverBgColor }}
           isRound
@@ -349,19 +351,6 @@ function Footer() {
   const bgColor = useColorModeValue("gray.200", "gray.700");
   const iconColor = useColorModeValue("gray.600", "gray.400");
   const hoverBgColor = useColorModeValue("gray.300", "gray.600");
-  const [isMobile] = useMediaQuery('(max-width: 480px)');
-  const [paddingBottom, setPaddingBottom] = useState(0);
-
-  useEffect(() => {
-    if (isMobile) {
-      const viewportHeight = window.innerHeight;
-      const screenHeight = window.screen.height;
-      const paddingBottomEstimation = screenHeight - viewportHeight;
-      setPaddingBottom(paddingBottomEstimation);
-    } else {
-      setPaddingBottom(0);
-    }
-  }, [isMobile]);
 
   return (
     <Box
@@ -372,7 +361,7 @@ function Footer() {
       bg={bgColor}
       p={4}
     >
-      <VStack spacing={4} alignItems="center" paddingBottom={`${paddingBottom}px`}>
+      <VStack spacing={4} alignItems="center">
         <Text fontWeight="bold" fontSize="lg">
           BeSAFU! V1
         </Text>
@@ -564,10 +553,10 @@ export const App = () => {
   }
   return (
     <ChakraProvider theme={theme}>
-      <Flex direction="column" minH="100vh">
-        <HeaderButtons />
-        <Box height="50px" />
-        <Flex flex="1" alignItems="center" justifyContent="center">
+      <Grid templateRows="auto 1fr auto" minH="100vh">
+        <HeaderButtons />        
+        <SimpleGrid columns={1} spacingY={50}>
+          <Box height="100px" />
           <Box
             textAlign="center"
             fontSize="xl"
@@ -592,13 +581,25 @@ export const App = () => {
                 isLoading={isLoading}
                 onClear={clearResults}
               />
-              <Box height="10px" />
-              {data.length > 0 && <DataTable data={data} />}
             </VStack>
           </Box>
+          <Box
+            width="100%"
+            alignSelf="center"
+          >
+            {data.length > 0 && (
+              <Box overflowY="auto" maxW="100%">
+                <DataTable data={data} />
+              </Box>
+            )}
+          </Box>
+        </SimpleGrid>
+        <Flex mt="auto" flexGrow={0}>
+          <Box width="100%">
+            <Footer />
+          </Box>
         </Flex>
-        <Footer />
-      </Flex>
+      </Grid>
     </ChakraProvider>
-  );
+  );  
 };
