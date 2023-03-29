@@ -255,7 +255,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
   const isSearchButtonDisabled = !isValidAddress(searchText) || isLoading;
 
   return (
-    <VStack alignItems="center" justifyContent="center" spacing={4}>
+    <VStack alignItems="center" justifyContent="center" spacing={4} width="100%">
       <InputGroup>
         <InputLeftElement pointerEvents="none">
           <SearchIcon color="gray.300" />
@@ -265,7 +265,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
           placeholder="Input BNBChain Wallet Address"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
-          width="450px"
+          width={{ base: "100%", md: "450px" }}
         />
         {searchText && (
           <InputRightElement>
@@ -358,10 +358,10 @@ function Footer() {
           BeSAFU! V1
         </Text>
         <VStack spacing={1} alignItems="center">
-          <Text fontSize="sm" textAlign="center">
-            Discover if your BNBChain address approved any Scam Smart Contract.
+          <Text fontSize={{ base: "xs", md: "sm" }} textAlign="center">
+            Discover if your BNBChain address interacted with any Scam Smart Contract.
           </Text>
-          <Text fontSize="sm" textAlign="center">
+          <Text fontSize={{ base: "xs", md: "sm" }} textAlign="center">
             Safeguard your Crypto Assets by using our Intelligent Analysis.
           </Text>
         </VStack>
@@ -549,7 +549,12 @@ export const App = () => {
         <HeaderButtons />
         <Box height="50px" />
         <Flex flex="1" alignItems="center" justifyContent="center">
-          <Box textAlign="center" fontSize="xl">
+          <Box
+            textAlign="center"
+            fontSize="xl"
+            width={{ base: "90%", md: "auto" }}
+            mx="auto"
+          >
             <VStack spacing={4}>
               <Flex alignItems="center">
                 <Logo />
