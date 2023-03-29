@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState, useEffect } from "react";
 import {
   ChakraProvider,
   Box,
@@ -30,7 +30,8 @@ import {
   ModalCloseButton,
   ModalBody,
   useClipboard,
-  Tooltip
+  Tooltip,
+  useMediaQuery
 } from "@chakra-ui/react";
 import { SearchIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
@@ -255,7 +256,12 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
   const isSearchButtonDisabled = !isValidAddress(searchText) || isLoading;
 
   return (
-    <VStack alignItems="center" justifyContent="center" spacing={4} width="100%">
+    <VStack
+      alignItems="center"
+      justifyContent="center"
+      spacing={4}
+      width="100%"
+    >
       <InputGroup>
         <InputLeftElement pointerEvents="none">
           <SearchIcon color="gray.300" />
@@ -343,6 +349,19 @@ function Footer() {
   const bgColor = useColorModeValue("gray.200", "gray.700");
   const iconColor = useColorModeValue("gray.600", "gray.400");
   const hoverBgColor = useColorModeValue("gray.300", "gray.600");
+  const [isMobile] = useMediaQuery('(max-width: 480px)');
+  const [paddingBottom, setPaddingBottom] = useState(0);
+
+  useEffect(() => {
+    if (isMobile) {
+      const viewportHeight = window.innerHeight;
+      const screenHeight = window.screen.height;
+      const paddingBottomEstimation = screenHeight - viewportHeight;
+      setPaddingBottom(paddingBottomEstimation);
+    } else {
+      setPaddingBottom(0);
+    }
+  }, [isMobile]);
 
   return (
     <Box
@@ -353,13 +372,14 @@ function Footer() {
       bg={bgColor}
       p={4}
     >
-      <VStack spacing={4} alignItems="center">
+      <VStack spacing={4} alignItems="center" paddingBottom={`${paddingBottom}px`}>
         <Text fontWeight="bold" fontSize="lg">
           BeSAFU! V1
         </Text>
         <VStack spacing={1} alignItems="center">
           <Text fontSize={{ base: "xs", md: "sm" }} textAlign="center">
-            Discover if your BNBChain address interacted with any Scam Smart Contract.
+            Discover if your BNBChain address interacted with any Scam Smart
+            Contract.
           </Text>
           <Text fontSize={{ base: "xs", md: "sm" }} textAlign="center">
             Safeguard your Crypto Assets by using our Intelligent Analysis.
@@ -419,8 +439,7 @@ function Footer() {
 export const App = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const toast = useToast();
-
+  const toast = useToast();  
   const clearResults = () => {
     setData([]);
   };
