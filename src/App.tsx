@@ -370,7 +370,7 @@ function Footer() {
             Discover if your BNBChain address interacted with any Scam Smart
             Contract.
           </Text>
-          <Text fontSize={{ base: "xs", md: "xs" }} textAlign="center">
+          <Text fontSize={{ base: "xs", md: "sm" }} textAlign="center">
             Safeguard your Crypto Assets by using our Intelligent Analysis.
           </Text>
           <Text fontSize="xs" textAlign="center">
