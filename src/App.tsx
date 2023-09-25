@@ -374,7 +374,7 @@ function Footer() {
             Safeguard your Crypto Assets by using our Intelligent Analysis.
           </Text>
           <Text fontSize="xs" textAlign="center">
-            Database update: 11-June-2023
+            Database update: 26-September-2023
           </Text>
         </VStack>
         <HStack spacing={4}>

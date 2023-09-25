@@ -148,5 +148,50 @@
     "address": "0x7c0697155617b7A797CB7517d483DbBdB17089CF",
     "nameTag": "aATL_AtlantisExploit",
     "reporter": "0xJ1M"
+  },
+  {
+    "address": "0x19ed9e4795cC52b16f45CF112692A74Dbc267A1f",
+    "nameTag": "eUSDT_ESGFinancialExploit",
+    "reporter": "HashDit"
+  },
+  {
+    "address": "0x3F6e1d8E2896084a9Ffd6B1fCB3e86a0162fd045",
+    "nameTag": "eUSDC_ESGFinancialExploit",
+    "reporter": "HashDit"
+  },
+  {
+    "address": "0xC517b6770cC1BAe60b68C356445ac24fC477a814",
+    "nameTag": "eVAI_ESGFinancialExploit",
+    "reporter": "HashDit"
+  },
+  {
+    "address": "0x9ad55bD5a3c91E9D2F1452e34679d06d4Bf73cf6",
+    "nameTag": "eBTC_ESGFinancialExploit",
+    "reporter": "HashDit"
+  },
+  {
+    "address": "0x4519c936F472547692D223B25BE849321d2dC328",
+    "nameTag": "eETH_ESGFinancialExploit",
+    "reporter": "HashDit"
+  },
+  {
+    "address": "0x3682F6B3770d99cF977017f202f334E4D53977A2",
+    "nameTag": "eBNB_ESGFinancialExploit",
+    "reporter": "HashDit"
+  },
+  {
+    "address": "0x7F73389C11ECf5112AB7eb832365162711761866",
+    "nameTag": "eZIL_ESGFinancialExploit",
+    "reporter": "HashDit"
+  },
+  {
+    "address": "0x0576dDbfFbdE35D2Bf57A2504cBeB82D06ce79B0",
+    "nameTag": "eBABY_ESGFinancialExploit",
+    "reporter": "HashDit"
+  },
+  {
+    "address": "0x9f7F3865484F267170C73E9dae579C954d6b7193",
+    "nameTag": "eWING_ESGFinancialExploit",
+    "reporter": "HashDit"
   }
 ]
